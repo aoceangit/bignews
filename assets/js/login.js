@@ -34,9 +34,12 @@ $(function () {
         //获取用户名和密码
         // var username = $(".reg-box [name=username]").val();
         // var password = $(".reg-box [name=password]").val();
-        var data = { username: $(".reg-box [name=username]").val(), password: $(".reg-box [name=password]").val() }
+        var data = {
+            username: $(".reg-box [name=username]").val(),
+            password: $(".reg-box [name=password]").val()
+        }
         //发起ajax的请求
-        $.post("http://www.liulongbin.top:3007/api/reguser", data, function (res) {
+        $.post("/api/reguser", data, function (res) {
             if (res.status !== 0) {
                 // return console.log(reg.message);
                 return layer.msg(res.message);
@@ -56,13 +59,13 @@ $(function () {
             data: $(this).serialize(),
             success: function (res) {
                 if (res.status !== 0) {
-                    layer.msg("登录失败！");
+                    return layer.msg("登录失败！");
                 }
                 layer.msg("登录成功！");
                 // console.log(res.token);
                 //存储token
                 localStorage.setItem("token", res.token);
-                // location.href = "/index.html";
+                location.href = "/index.html";
             }
         })
 
