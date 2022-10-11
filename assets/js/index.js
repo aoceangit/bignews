@@ -55,8 +55,9 @@ function renderAvatar(user) {
     var name = user.nickname || user.username
     $("#welcome").html("欢迎&nbsp;&nbsp;" + name);
     //按需渲染用户的头像
-    if (user.user_pic != null) {
-        $(".layui-nav-img").attr("src", "user.user_pic").show;
+    if (user.user_pic !== null) {
+        // "user.user_pic"是变量不能用双引号
+        $(".layui-nav-img").attr("src", user.user_pic).show;
         $(".text-avatar").hide();
     } else {
         $(".layui-nav-img").hide();

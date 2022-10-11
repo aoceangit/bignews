@@ -57,3 +57,7 @@ div.userinfo {
     color: #fff;
     margin-right: 10px;
 }
+
+.layui-nav-item a {
+    font-size: 12px;
+}
